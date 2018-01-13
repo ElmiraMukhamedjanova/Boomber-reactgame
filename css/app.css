@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css?family=Luckiest+Guy|Monoton|Orbitron|VT323');
+/*
+font-family: 'Russo One', sans-serif;
+font-family: 'Permanent Marker', cursive;
+font-family: 'Orbitron', sans-serif;
+font-family: 'Bungee', cursive;
+*/
+.none {
+  display: none !important;
+}
+
+body {
+  background: #ecf0f1;
+  font-family: sans-serif;
+font-family: 'Orbitron', sans-serif;
+
+  color: #1a1f25;
+}
+.title{
+  font-family: 'Monoton', cursive;
+  font-size: 26px;
+  
+}
+.title span{
+  color: #f44336
+}
+.cubeBase{
+   font-size: 0; 
+}
+
+.cube{
+  font-size: 1rem;
+  display: inline-block;
+  height: 38px;
+  width: 38px;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+  vertical-align: top;
+  background: #5cace2;
+  border: 1px solid #2980b9;
+  border-radius:5px;
+}
+.cube:hover{
+  box-shadow: 0px 0px 1px 2px #ecf0f1;
+  z-index: 999;
+}
+.disabled{
+  background: #57d68d;
+  cursor: not-allowed;
+}
+.orange{
+  background: #f39c12;
+  cursor: not-allowed;
+}
+.leftpanel{
+  display: inline-block;
+  vertical-align: top;
+  width: 200px;
+  background: #5cace2;
+  height: 571px;
+  padding: 22px 20px;
+  border: 1px solid #2980b9;
+  text-align: center;
+}
+.rightpanel{
+  display: inline-block;
+  vertical-align: top;
+  width: 575px;
+  background: #bdc3c7;
+  height: 571px;
+  padding: 22px 20px;
+  border: 1px solid #7f8c8d;
+}
+.level{
+  text-align: center;
+  font-size: 32px;
+  margin: 0;
+}
+.buttonstart{
+  background: #2980b9;
+  border: none;
+  border-radius: 100%;
+  font-size: 50px;
+  width: 90px; height: 90px;
+  cursor: pointer; margin-right: 5px;
+}
+.buttonrestart{
+  background: #2980b9;
+  border: none;
+  border-radius: 100%;
+  font-size: 40px;
+  width: 90px; height: 90px;
+  cursor: pointer;
+}
+.score{
+  font-size: 42px;
+}
+.range{
+  margin: 14px 0;
+}
