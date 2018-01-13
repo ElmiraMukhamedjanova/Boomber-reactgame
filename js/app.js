@@ -12,7 +12,9 @@ class App extends React.Component{
          score: 0,
          disabled: false
       }
-      
+      this.onClickEvent = this.onClickEvent.bind(this);
+      this.onChangeEvent = this.onChangeEvent.bind(this);
+      this.onBombClick = this.onBombClick.bind(this);
    };
    onChangeEvent(e){   
       this.setState({inputdata:e.target.value});
