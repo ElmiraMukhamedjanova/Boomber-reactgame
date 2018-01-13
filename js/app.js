@@ -52,6 +52,55 @@ class App extends React.Component{
          console.log('Entered: 0');
       }
    } 
+   onBombClick(e){
+      this.randomCube.map((arr, index) => {
+         if(arr == e.target.getAttribute('data-id')){ 
+            this.returnToDefaultCube(index);
+            alert('Looser!');
+            this.score = 0;   
+            this.onClickEvent();          
+         }else{        
+            e.target.setAttribute("disabled", "");            
+            var current_target = Number(e.target.getAttribute('data-id'));
+            var curElementSib = Number(e.target.getAttribute('data-linend'));
+            var nextElementSib = e.target.nextElementSibling ? Number(e.target.nextElementSibling.getAttribute('data-linend')) : 0;
+            var prevElementSib = e.target.previousElementSibling ? Number(e.target.previousElementSibling.getAttribute('data-linend')) : 0;
+            var blockStatus = false;
+            var prev_target = current_target + 1;
+            var next_target = current_target - 1;
+            var top_target = current_target + Number(this.state.inputdata);
+            var bottom_target = current_target - Number(this.state.inputdata); 
+            
+            this.randomCube.map((arr2, index2) => {          
+               if (bottom_target == Number(arr2) || top_target == Number(arr2)){ 
+                  blockStatus = true;
+               }else if (prev_target == Number(arr2) &&  curElementSib == 0 && prevElementSib == 0) {
+                  blockStatus = true;
+               }else if (prev_target == Number(arr2) && prevElementSib == 0) {
+                  blockStatus = true;
+               }else if (next_target == Number(arr2) && curElementSib == 0 && nextElementSib == 0) {
+                  blockStatus = true; 
+               }else if (next_target == Number(arr2) && curElementSib == 0) {
+                  blockStatus = true; 
+               }
+            })
+              
+            if (blockStatus == true) {
+               e.target.setAttribute("class", "cube orange");
+            } else{
+               e.target.setAttribute("class", "cube disabled");
+            }           
+            this.score++;    
+               
+         }
+      })     
+      this.setState({score: Math.floor(this.score/this.state.inputdata), reset: Math.floor(this.score/this.state.inputdata)});
+   
+      if (this.state.score + 1 == Math.pow(this.state.inputdata, 2) - this.state.inputdata) {
+         alert('Good Job! You are Winner!');
+          this.score = 0;
+      }
+   }
    render(){
     return(
             <div>        
