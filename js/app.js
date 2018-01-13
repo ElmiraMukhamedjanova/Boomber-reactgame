@@ -14,7 +14,9 @@ class App extends React.Component{
       }
       
    };
-   
+   onChangeEvent(e){   
+      this.setState({inputdata:e.target.value});
+   }  
    render(){
     return(
             <div>        
