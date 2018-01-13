@@ -101,6 +101,15 @@ class App extends React.Component{
           this.score = 0;
       }
    }
+   returnToDefaultCube(index){
+      var snapCount = document.getElementsByClassName('cube');
+            setTimeout(function(){
+               for (index = 0; index < snapCount.length; ++index) {
+                  snapCount[index].setAttribute("class", "cube");
+                  snapCount[index].removeAttribute("disabled");
+               }
+            }, 0.5)  
+   }
    render(){
     return(
             <div>        
