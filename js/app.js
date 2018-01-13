@@ -17,6 +17,41 @@ class App extends React.Component{
    onChangeEvent(e){   
       this.setState({inputdata:e.target.value});
    }  
+   onClickEvent(){
+      this.cube = [];
+      this.randomCube.map((arr, index) => {this.returnToDefaultCube()});
+      if (this.state.inputdata > 0 ) {      
+         let cubesize = this.state.inputdata * 40;
+         this.setState({cubesize: cubesize, cubequant:this.state.inputdata});
+
+         this.randomCube = [];
+         while(this.randomCube.length < this.state.inputdata){
+            let rand = Math.floor(Math.random() * Math.pow(this.state.inputdata, 2));
+            if(this.randomCube.indexOf(rand) > -1) continue;
+            this.randomCube[this.randomCube.length] = rand;
+         }
+
+         this.cube = []; 
+         for (var i = Math.pow(this.state.inputdata, 2) - 1; i >= 0; i--) {
+            var temp = "";
+            this.randomCube.map((ar, index) => { 
+               ar == i ? temp = 'X' : false;
+            })
+            var tempAr = [];
+            var boxQuant = Math.pow(this.state.inputdata, 2) - 1;
+            var input = Number(this.state.inputdata);
+            var n = 0;
+            while(n <= boxQuant){
+                tempAr.push(n);
+                n = n + input;
+            }           
+            this.cube.push(<button className="cube" onClick={this.onBombClick} key={i} data-id={i} data-linend={tempAr.includes(i) ? 1 : 0}>{/*temp ? temp : '0'*/}</button>);  
+         }  
+      }else{
+         this.setState({cubequant:0});
+         console.log('Entered: 0');
+      }
+   } 
    render(){
     return(
             <div>        
