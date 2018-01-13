@@ -112,15 +112,24 @@ class App extends React.Component{
    }
    render(){
     return(
-            <div>        
+            <div>
+               <div className="wrapper">
+                  <div className="leftpanel">
+                  <h1 className="title">The B<span className="fa fa-bomb"></span>mber</h1>
                      <h3 className="level">{this.state.inputdata}</h3>
                      <input className="range" type="range" onChange={this.onChangeEvent} min="3" max="15" step="1" value={this.state.inputdata} />
-                     <button onClick={this.onClickEvent} className="buttonstart">start</button>
-                     <h2 className="score">Score: {this.state.score}</h2>
+                     <br/>
+<h2 className="score">Score: {this.state.score}</h2>
+                     <button onClick={this.onClickEvent} className="buttonstart"><span className="fa fa-play-circle-o"></span></button>
+                     
+                     <button onClick={this.onClickEvent} className="buttonrestart"><span className="fa fa-repeat"></span></button>
+                  </div>
+                  <div className="rightpanel">
                      <div className="cubeBase" style={{width : this.state.cubesize}}>
                         {this.cube}
                      </div>
-                  
+                  </div>
+               </div>
             </div>
          );
    }
